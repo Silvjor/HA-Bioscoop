@@ -36,6 +36,7 @@ Chose manual and add the following code:
 type: 'custom:bioscoop-card'
 media_device: media_player.android_tv_1
 poster_count: 3
+media_region: en
 ```
 
 You can change the poster count to your liking
@@ -43,6 +44,8 @@ You can change the poster count to your liking
 Make sure to select the proper media_player.
 
 This uses the android ADB command
+
+Default media region: NL
 
 *configuration.yaml*
 ```
