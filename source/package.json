@@ -1,0 +1,23 @@
+{
+    "name": "bioscoop-card",
+    "private": true,
+    "version": "0.0.1",
+    "description": "bioscoop-card",
+    "scripts": {
+        "build": "webpack",
+        "watch": "webpack --watch --mode=development"
+    },
+    "keywords": [],
+    "author": "Silvjör",
+    "license": "MIT",
+    "devDependencies": {
+        "webpack": "^5.38.1",
+        "webpack-cli": "^4.7.0"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "image-promise": "^7.0.1",
+        "lit-element": "^2.2.1",
+        "lit-html": "^1.1.2"
+    }
+}

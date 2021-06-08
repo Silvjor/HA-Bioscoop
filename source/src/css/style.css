@@ -1,0 +1,431 @@
+ha-card {
+  overflow: hidden;
+}
+
+/* makes the size of the card */
+ha-card:after {
+  content: "";
+  display: block;
+  padding-top: 45%;
+}
+
+
+#posterWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all 1s ease 0s;
+  position: absolute;
+  top: 6em;
+}
+
+/*
+calculate poster height
+total width * width% * padding %
+1384        * .15    * 1.44
+*/
+
+#posterWrapper .poster {
+  width: 15%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1em;
+  box-shadow: 0 17px 25px -18px #22625b94;
+  margin: 1% 1% 1% 1%;
+  background-position: center;
+  cursor: pointer;
+  transition: all 1s ease 0s;
+}
+
+#posterWrapper .poster:before {
+  content: "";
+  display: block;
+  padding-top: 144%; /* average aspect ratio of posters*/
+}
+
+/* easy fix for javascript */
+#posterWrapper .poster div {
+  pointer-events: none;
+}
+
+#posterWrapper .poster .quality {
+  height: 0px;
+  position: relative;
+  width: 100%;
+}
+
+#posterWrapper .poster .quality svg {
+  position: absolute;
+  margin-top: -38%;
+  fill: rgb(235, 235, 235);
+  margin-left: 52%;
+  stroke: rgba(0, 0, 0, 0.4);
+  stroke-width: 1px;
+  paint-order: stroke;
+}
+
+#posterWrapper .poster .provider {
+  position: relative;
+}
+
+#posterWrapper .poster .provider .icon {
+  position: relative;
+  width: 24%;
+  height: 56px;
+  stroke: #000000;
+  stroke-width: 1px;
+  paint-order: stroke;
+  margin-left: -8%;
+}
+
+#posterWrapper .poster .star_rating {
+  position: relative;
+  width: 100%;
+}
+
+#posterWrapper .poster .star_rating .positioner {
+  display: flex;
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 3%;
+}
+
+#posterWrapper .poster .star_rating .positioner svg {
+  width: 14%;
+  fill: #444b4a;
+}
+
+#posterWrapper .poster .star_rating .positioner svg.full {
+  fill: #dc3652;
+}
+
+#posterWrapper .poster .star_rating .positioner svg.half #starLeft {
+  fill: #dc3652;
+}
+
+#posterWrapper .poster .star_rating .positioner svg.half #starRight {
+  fill: #444b4a;
+}
+
+.loader {
+  height: 0px;
+  position: relative;
+  width: 100%;
+  display: none;
+}
+
+.loader svg {
+  position: absolute;
+  margin-top: -120%;
+  fill: rgb(235 235 235);
+  stroke: rgba(0, 0, 0, 0.4);
+  stroke-width: 2px;
+  paint-order: stroke;
+}
+
+/* ----------------------------------------------------- */
+
+#mainLoader {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#mainLoader svg {
+  position: absolute;
+  fill: #dc3652;
+  stroke: #00000073;
+  stroke-width: 2px;
+  paint-order: stroke;
+  height: 80%;
+}
+
+div#mainLoader div {
+  position: absolute;
+  margin-top: 25%;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 180%;
+  color: #dc3652;
+  text-align: center;
+  line-height: 200%;
+}
+
+/* ----------------------------------------------------- */
+
+#backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: 0;
+  opacity: 0;
+  transition: all 1s ease 0s;
+}
+
+#backdrop:before {
+  content: "";
+  background-image: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+}
+
+#details {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 80%;
+  margin-top: 100%;
+  transition: all 1s ease 0s;
+}
+
+#details:after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: -10%;
+  width: 110%;
+  height: 70%;
+  background-color: #fbfbfb;
+  transform: rotate(6deg);
+}
+
+#details .return {
+  position: absolute;
+  z-index: 2;
+  width: 3em;
+  margin: 1em;
+  cursor: pointer;
+}
+
+#details .return svg {
+  fill: #dc3652;
+  stroke: rgb(251 251 251);
+  stroke-width: 2px;
+  paint-order: stroke;
+  pointer-events: none;
+}
+
+#details .poster {
+  width: 16%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1em;
+  position: absolute;
+  z-index: 1;
+  background-position: center;
+  left: 4%;
+  box-shadow: 0 17px 25px -18px #22625b94;
+  bottom: 8%;
+}
+
+#details .poster:before {
+  content: "";
+  display: block;
+  padding-top: 144%;
+}
+
+#details .title {
+  fill: #fbfbfb;
+  font-family: "Roboto";
+  font-weight: 700;
+  left: 23%;
+  position: absolute;
+  bottom: 43%;
+  width: 55%;
+  stroke: #00000069;
+  stroke-width: 1px;
+  paint-order: stroke;
+}
+
+#details .text {
+  position: absolute;
+  font-family: "Roboto";
+  bottom: -22%;
+  z-index: 2;
+  left: 1%;
+  font-size: 0.8em;
+  width: 22%;
+  text-align: center;
+  color: #2b080e;
+  height: 26%;
+}
+
+#details .tags {
+  position: absolute;
+  z-index: 2;
+  top: 98%;
+  left: 22%;
+  width: 88%;
+}
+
+#details .tags .skew {
+  width: 100%;
+  transform: rotate(6deg);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin-top: -7%;
+  margin-left: -10.4%;
+}
+
+#details .tags .skew svg {
+  fill: #dc3652;
+  font-family: "Roboto";
+  font-weight: 700;
+  padding-right: 13%;
+  transform: rotate(-90deg);
+}
+
+#details .tags .skewData {
+  width: 100%;
+  transform: rotate(6deg);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+#details .tags .skewData svg {
+  fill: #333333;
+  font-family: "Roboto";
+  font-weight: 700;
+  padding-right: 0%;
+  transform: rotate(0deg);
+  margin-right: 0%;
+}
+
+#details .play {
+  position: absolute;
+  top: 57%;
+  left: 23%;
+  width: 4em;
+  background-color: #dc3652;
+  font-family: "Roboto";
+  text-align: center;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  font-weight: 900;
+  color: #fbfbfb;
+  font-size: 1.3em;
+  border: solid #fbfbfb 2px;
+  cursor: pointer;
+}
+
+#details .play:after {
+  /* content: ""; */
+  display: block;
+  padding-top: 100%;
+}
+
+/* ----------------------------------------------------- */
+
+#search {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 2rem;
+  font-size: 1em;
+  transition: all 1s ease 0s;
+}
+
+#search form {
+  position: relative;
+  width: 26em;
+  height: 2.5em;
+  border-radius: 2.5em;
+  box-shadow: 0 6px 8px 0px rgb(0 0 0 / 15%);
+  background: #fff;
+  border: #8a8a8a30 solid 1px;
+}
+
+#search input[type="search"] {
+  position: absolute;
+  font-size: 1.2em;
+  background: none;
+  color: #5a6674;
+  width: 14em;
+  height: 2.4em;
+  border: none;
+  appearance: none;
+  outline: none;
+  margin-top: -0.1em;
+  margin-left: 2.5em;
+}
+
+#search button {
+  position: absolute;
+  top: 0.5em;
+  left: 1em;
+  height: 1.6em;
+  width: 1.6em;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none !important;
+  font-size: inherit;
+  fill: #5a6674;
+}
+
+#search button svg {
+  transition: all 0.2s ease-in-out;
+}
+
+#search button svg:nth-child(1) {
+  opacity: 1;
+}
+
+#search button svg:nth-child(2) {
+  width: 200%;
+  margin: -50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+}
+
+#search .types {
+  position: absolute;
+  text-align: right;
+  top: 0.4em;
+  right: 1em;
+  display: flex;
+}
+
+#search .types .type {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.4em;
+  cursor: pointer;
+}
+
+#search input[type="checkbox"] {
+  display: none;
+}
+
+#search .types .type svg {
+  fill: #5a6674;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+#search input[type="checkbox"]:checked + label svg {
+  fill: #e24040;
+  opacity: 0.9;
+}
