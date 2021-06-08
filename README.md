@@ -47,6 +47,8 @@ This uses the android ADB command
 
 Default media region: NL
 
+[List of regions](http://github.com/Silvjor/HA-Bioscoop/blob/main/region.md)
+
 *configuration.yaml*
 ```
 media_player:
